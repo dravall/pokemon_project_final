@@ -1,0 +1,7 @@
+/* You can add global styles to this file, and also import other style files */
+.nav {
+  display: flex; gap: 1rem; padding: 1rem; border-bottom: 1px solid #e5e7eb;
+  a { text-decoration: none; color: #374151; }
+  .active { font-weight: 600; border-bottom: 2px solid #2563eb; }
+}
+.container { padding: 1.25rem; max-width: 960px; margin: 0 auto; }

@@ -1,0 +1,9 @@
+<nav class="nav">
+  <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Home</a>
+  <a routerLink="/pokemon" routerLinkActive="active">Pokémon</a>
+  <a routerLink="/contact" routerLinkActive="active">Fav</a>
+</nav>
+
+<main class="container">
+  <router-outlet></router-outlet>
+</main>

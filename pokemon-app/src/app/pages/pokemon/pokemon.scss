@@ -1,0 +1,16 @@
+.grid {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 1rem;
+}
+.card {
+  padding: .75rem; border: 1px solid #e5e7eb; border-radius: .75rem;
+  text-align: center; background: #fff;
+}
+.card img {
+  width: 120px; height: 120px; object-fit: contain; display: block; margin: .5rem auto;
+}
+.name { font-weight: 600; color: #374151; }
+.error { color: #b91c1c; margin: .5rem 0; }
+.pager { display: flex; gap: .75rem; align-items: center; margin-top: 1rem; }
+.pager button { padding: .45rem .8rem; border-radius: .5rem; border: 0; background: #2563eb; color: #fff; cursor: pointer; }
+.pager button[disabled] { opacity: .6; cursor: not-allowed; }

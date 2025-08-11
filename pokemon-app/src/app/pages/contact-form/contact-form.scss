@@ -1,0 +1,11 @@
+.field { margin-bottom: 1rem; display: flex; flex-direction: column; gap: .35rem; }
+input, textarea { padding: .6rem .75rem; border: 1px solid #d1d5db; border-radius: .5rem; font: inherit; }
+button { padding: .6rem 1rem; border-radius: .5rem; border: 0; background: #2563eb; color: #fff; cursor: pointer; }
+button[disabled] { opacity: .6; cursor: not-allowed; }
+.err small { color: #b91c1c; display: block; }
+.error { color: #b91c1c; margin-bottom: 1rem; }
+.list ul { list-style: none; padding: 0; display: grid; gap: .75rem; }
+.list li { border: 1px solid #e5e7eb; border-radius: .75rem; padding: .75rem; background: #fff; }
+.date { color: #6b7280; margin-left: .5rem; }
+.reason { color: #374151; margin-top: .25rem; }
+button.link { background: none; color: #2563eb; padding: 0; }

@@ -1,0 +1,45 @@
+<h2>Favorite Pokémon</h2>
+
+<div *ngIf="loading">Loading names…</div>
+<div class="error" *ngIf="error">{{ error }}</div>
+
+<form *ngIf="!loading && !error" [formGroup]="form" (ngSubmit)="onSubmit()" novalidate>
+  <div class="field">
+    <label for="trainer">Your name *</label>
+    <input id="trainer" type="text" formControlName="trainer" />
+    <div class="err" *ngIf="f.trainer.touched && f.trainer.errors">
+      <small *ngIf="f.trainer.errors['required']">Name is required.</small>
+      <small *ngIf="f.trainer.errors['minlength']">Min 2 characters.</small>
+    </div>
+  </div>
+
+  <div class="field">
+    <label for="pokemon">Pokémon *</label>
+    <input id="pokemon" type="text" formControlName="pokemon" list="pokemonList" placeholder="Start typing… e.g., pikachu" />
+    <datalist id="pokemonList">
+      <option *ngFor="let n of names" [value]="n"></option>
+    </datalist>
+    <div class="err" *ngIf="f.pokemon.touched && f.pokemon.errors">
+      <small *ngIf="f.pokemon.errors['required']">Pick a Pokémon.</small>
+    </div>
+  </div>
+
+  <div class="field">
+    <label for="reason">Why this one? (optional)</label>
+    <textarea id="reason" rows="4" formControlName="reason"></textarea>
+  </div>
+
+  <button type="submit" [disabled]="form.invalid">Save Favorite</button>
+</form>
+
+<section class="list" *ngIf="favs.length">
+  <h3>Saved favorites</h3>
+  <ul>
+    <li *ngFor="let fav of favs; index as i">
+      <strong>{{ fav.trainer }}</strong> ❤️ <em>{{ fav.pokemon | titlecase }}</em>
+      <span class="date">{{ fav.date | date:'medium' }}</span>
+      <div class="reason" *ngIf="fav.reason">{{ fav.reason }}</div>
+      <button class="link" (click)="removeFav(i)">Remove</button>
+    </li>
+  </ul>
+</section>

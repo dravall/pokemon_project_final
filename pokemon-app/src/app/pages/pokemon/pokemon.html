@@ -1,0 +1,18 @@
+<h2>Pokémon</h2>
+
+<div *ngIf="loading">Loading…</div>
+<div class="error" *ngIf="error">{{ error }}</div>
+
+<!-- Paginated grid only -->
+<div class="grid" *ngIf="!loading && !error">
+  <div class="card" *ngFor="let p of list">
+    <img [src]="p.image" [alt]="p.name" />
+    <div class="name">#{{ p.id }} — {{ p.name | titlecase }}</div>
+  </div>
+</div>
+
+<div class="pager" *ngIf="!loading && !error">
+  <button (click)="prevPage()" [disabled]="page === 0">Prev</button>
+  <span>Page {{ page + 1 }}</span>
+  <button (click)="nextPage()">Next</button>
+</div>
